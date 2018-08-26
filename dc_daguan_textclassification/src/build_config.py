@@ -3,13 +3,12 @@ import os
 
 
 class ProjectConfig(object):
-    def __int__(self,temp):
-        self.project_dir = '/home/bp/PycharmProjects/dc_daguan_textclassification/dc_daguan_textclassification'
-        self.src_dir = os.path.join(self.project_dir, 'src')
-        self.DATA_DIR = os.path.join(self.project_dir, 'data')
+    def __init__(self):
+        self.PROJECT_DIR = '/home/bp/PycharmProjects/dc_daguan_textclassification/dc_daguan_textclassification'
+        self.SRC_DIR = os.path.join(self.PROJECT_DIR, 'src')
+        self.DATA_DIR = os.path.join(self.PROJECT_DIR, 'data')
         self.args = None
         self.build_config()
-        self.temp = temp
 
     def build_config(self):
         arg_parser = argparse.ArgumentParser(description='Build configuration for Project.')
@@ -19,15 +18,9 @@ class ProjectConfig(object):
                                 help='path of test dataset')
         self.args = arg_parser.parse_args()
 
-
-    def print_temp(self):
-        print(self.project_dir)
-
-cfg = ProjectConfig('temp')
-cfg.print_temp()
-# if __name__ == '__main__':
-#     cfg = ProjectConfig()
-#     cfg.print_temp()
+if __name__ == '__main__':
+    cfg = ProjectConfig()
+    cfg.print_temp()
     # print(cfg.PROJECT_DIR)
 
     # print(cfg.args.train_data_path)
